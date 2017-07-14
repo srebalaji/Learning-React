@@ -28,8 +28,10 @@ class State extends React.Component {
         Model: 
         <Child params={this.update.bind(this)} />
         <p>{this.state.txt}</p>
-        <br /><br />
+        <br />
         <Button>I <Heart /> React</Button>
+        <br />
+        <Title text="Validation Text"/>
       </div>
     )
   }
@@ -42,6 +44,20 @@ const Button = (props) => <button>{props.children}</button>
 class Heart extends React.Component {
   render() {
     return <span>&hearts;</span>
+  }
+}
+
+const Title = (props) => <h4>{props.text}</h4>
+
+Title.propTypes = {
+  text(props, propName, component) {
+    if (! (propName in props)) {
+      return new Error(`missing ${propName}`)
+    }
+    if (props[propName].length < 5) {
+      console.log(props[propName]);
+      return new Error(`length is too short for ${propName}`)
+    }
   }
 }
 
