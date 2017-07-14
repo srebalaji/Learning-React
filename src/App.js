@@ -4,7 +4,12 @@ const App = () => <h1>This is stateless</h1>
 
 class State extends React.Component {
   render() {
-    return <h1>Statefull</h1>
+    return (
+      <div>
+        <h1>Stateful</h1>
+        <b>Bold Tag</b>
+      </div>
+    )
   }
 }
 
