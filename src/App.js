@@ -1,6 +1,6 @@
 import React from 'react';
 
-const App = () => <h1>This is stateless</h1>
+const App = () => "<h1>This is stateless</h1>"
 
 class State extends React.Component {
   constructor() {
@@ -25,12 +25,15 @@ class State extends React.Component {
         <h4>Cat: {cat}</h4>
         <b>Bold Tag</b>
         <br /><br />
-        Model: <input type="text" onChange={this.update.bind(this)} />
+        Model: 
+        <Child params={this.update.bind(this)} />
         <p>{this.state.txt}</p>
       </div>
     )
   }
 }
+
+const Child = (props) => <input type='text' onChange={props.params} />
 
 State.propTypes = {
   txt: React.PropTypes.string,
