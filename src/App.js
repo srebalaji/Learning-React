@@ -28,12 +28,22 @@ class State extends React.Component {
         Model: 
         <Child params={this.update.bind(this)} />
         <p>{this.state.txt}</p>
+        <br /><br />
+        <Button>I <Heart /> React</Button>
       </div>
     )
   }
 }
 
 const Child = (props) => <input type='text' onChange={props.params} />
+
+const Button = (props) => <button>{props.children}</button>
+
+class Heart extends React.Component {
+  render() {
+    return <span>&hearts;</span>
+  }
+}
 
 State.propTypes = {
   txt: React.PropTypes.string,
